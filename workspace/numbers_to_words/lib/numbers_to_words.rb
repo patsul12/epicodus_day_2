@@ -150,16 +150,15 @@ class Bignum
     69 => "dovigintillion", 70 => "dovigintillion", 71 => "dovigintillion",
     72 => "trevigintillion", 73 => "trevigintillion", 74 => "trevigintillion",
     75 => "quattuorvigintillion", 76 => "quattuorvigintillion", 77 => "quattuorvigintillion",
+    78 => "quinvigintillion", 79 => "quinvigintillion", 80 => "quinvigintillion",
+    81 => "sexvigintillion", 82 => "sexvigintillion", 83 => "sexvigintillion",
+    84 => "septenvigintillion", 85 => "septenvigintillion", 86 => "septenvigintillion",
+    87 => "octovigintillion", 88 => "octovigintillion", 89 => "octovigintillion",
+    90 => "novemvigintillion", 91 => "novemvigintillion", 92 => "novemvigintillion",
+    93 => "trigintillion", 94 => "trigintillion", 95 => "trigintillion",
 
 =begin
   todo:
-   quattuorvigintillion
-   quinvigintillion
-   sexvigintillion
-   septenvigintillion
-   octovigintillion
-   novemvigintillion
-   trigintillion
    untrigintillion
    dotrigintillion
    tretrigintillion
