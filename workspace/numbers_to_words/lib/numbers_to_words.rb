@@ -2,8 +2,18 @@ class Fixnum
 
   positions = {
     0 => {0 => "", 1 => "one", 2 => "two", 3 => "three", 4 => "four", 5 => "five", 6 => "six", 7 => "seven", 8 => "eight", 9 => "nine"},
-    1 => {0 => "", 1 => {1 => "eleven", 2 => "twelve", 3 => "thirteen", 4 => "fourteen", 5 => "fifteen", 6 => "seventeen", 8 => "eightteen", 9 => "nineteen"},
-      2 => "twenty", 3 => "thirty", 4 => "forty", 5 => "fifty", 6 => "sixty", 7 => "seventy", 8 => "eighty", 9 => "ninety"},
+    1 => {
+      0 => "",
+      1 => {0 => "ten", 1 => "eleven", 2 => "twelve", 3 => "thirteen", 4 => "fourteen", 5 => "fifteen", 6 => "seventeen", 8 => "eightteen", 9 => "nineteen"},
+      2 => "twenty",
+      3 => "thirty", 
+      4 => "forty", 
+      5 => "fifty", 
+      6 => "sixty", 
+      7 => "seventy", 
+      8 => "eighty", 
+      9 => "ninety"
+    },
     2 => "",
     3 => "thousand",
     4 => "thousand",
@@ -21,7 +31,7 @@ class Fixnum
 
   len = 0
   position = 0
-  num_array = 0
+  num_array = []
 
   define_method(:numbers_to_words) do
     output = ""
@@ -37,10 +47,9 @@ class Fixnum
     num_array.reverse!
 
     num_array.each_with_index do |value, index|
-      position -= num_array[index].length - 1
       append = ""
       group = groups_of_three(num_array[index])
-      if position > 2 && num_array[index][2] != 0
+      if position > 1 && num_array[index][2] != 0
         append = positions[position]
       else
         append = ""
@@ -49,8 +58,9 @@ class Fixnum
       if append != ""
         output += group + " " + append + " "
       else
-        output += group + append
+        output += group + append + " "
       end
+      position -= 3
     end
     return output.split(" ").join(" ").strip
   end
@@ -65,11 +75,10 @@ class Fixnum
         temp = ""
         if group[pos] == 1
           temp += positions[1][1].fetch(group[pos - 1])
-          output += temp
-          return output
+        else
+          temp += " " + positions[1][group[pos]] + " "
+          temp += positions[0].fetch(group[0])
         end
-        temp += " " + positions[pos].fetch(group[pos]) + " "
-        temp += positions[0].fetch(group[0])
         output += temp
         return output
       elsif pos == 2

@@ -9,7 +9,7 @@ describe('Fixnum#numbers_to_words') do
   end
 
   it ('converts a two digit number into a word') do
-    expect((12).numbers_to_words).to(eq('twelve'))
+    expect((10).numbers_to_words).to(eq('ten'))
   end
 
   it ('converts a three digit number into a word') do
